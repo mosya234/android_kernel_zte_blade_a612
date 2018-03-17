@@ -1,0 +1,31 @@
+/*
+
+ */
+
+/*************************
+ * I2C dtsi file
+*************************/
+&i2c1 {
+	goodix_touch@5d {
+		compatible = "mediatek,goodix_touch";
+		reg = <0x5d>;
+		rst-gpio = <&pio 62 0>;
+		int-gpio = <&pio 10 0>;
+		interrupt-parent = <&eintc>;
+		interrupts = <1 2>;
+		debounce = <10 0>;
+		avdd_regulator-supply = <&mt_pmic_vgp1_ldo_reg>;
+	};
+
+	focal_touch@38 {
+		compatible = "mediatek,focal_touch";
+		reg = <0x38>;
+		rst-gpio = <&pio 10 0>;
+		int-gpio = <&pio 1 0>;
+		interrupt-parent = <&eintc>;
+		interrupts = <1 2>;
+		debounce = <10 0>;
+		avdd_regulator-supply = <&mt_pmic_vgp1_ldo_reg>;
+	};
+};
+
